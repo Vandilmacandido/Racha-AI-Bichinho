@@ -59,39 +59,3 @@ export const analyzeReceiptText = async (text: string): Promise<AIReceiptRespons
     throw error;
   }
 };
-
-export const generateSpendingInsights = async (expenses: any[], participants: any[]): Promise<string> => {
-  try {
-    const dataSummary = JSON.stringify({ expenses, participants });
-    
-    const prompt = `
-      Você é um "amigo sincerão" e muito engraçado analisando a conta do rolê desse grupo.
-      Analise os dados JSON abaixo e gere um comentário curto (máximo 3 frases) e MUITO DIVERTIDO/ENGRAÇADO.
-
-      Diretrizes de humor:
-      - Use gírias brasileiras informais e emojis.
-      - Dê um título engraçado para o maior gastador (ex: "o burguês safado", "o rei do camarote", "o patrocinador").
-      - Se gastaram muito com bebida/álcool, faça uma piada sobre a ressaca ou o fígado.
-      - Se gastaram muito com comida, chame o grupo de "dragas" ou "esfomeados".
-      - Se a conta deu baixa, zoa que o grupo é "mão de vaca".
-      - O objetivo é fazer o grupo rir ao ler o resumo. Seja criativo!
-
-      Dados:
-      ${dataSummary}
-    `;
-
-    const response = await ai.models.generateContent({
-      model: modelId, // Using Flash for speed on insights
-      contents: prompt,
-      config: {
-        // Just plain text needed here
-        thinkingConfig: { thinkingBudget: 0 } 
-      }
-    });
-
-    return response.text || "Não foi possível gerar insights no momento.";
-  } catch (error) {
-    console.error("Error generating insights:", error);
-    return "Erro ao analisar os dados.";
-  }
-};
