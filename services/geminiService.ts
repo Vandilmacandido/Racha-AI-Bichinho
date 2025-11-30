@@ -65,13 +65,16 @@ export const generateSpendingInsights = async (expenses: any[], participants: an
     const dataSummary = JSON.stringify({ expenses, participants });
     
     const prompt = `
-      Analise os seguintes dados de despesas de um grupo de amigos (JSON abaixo).
-      Gere um insight curto, interessante e útil (máximo 2 parágrafos) em Português.
-      
-      Foque em:
-      1. Quem gastou mais.
-      2. Qual categoria foi a mais cara (ex: gastaram muito em bebida).
-      3. Uma dica financeira rápida ou observação curiosa.
+      Você é um "amigo sincerão" e muito engraçado analisando a conta do rolê desse grupo.
+      Analise os dados JSON abaixo e gere um comentário curto (máximo 3 frases) e MUITO DIVERTIDO/ENGRAÇADO.
+
+      Diretrizes de humor:
+      - Use gírias brasileiras informais e emojis.
+      - Dê um título engraçado para o maior gastador (ex: "o burguês safado", "o rei do camarote", "o patrocinador").
+      - Se gastaram muito com bebida/álcool, faça uma piada sobre a ressaca ou o fígado.
+      - Se gastaram muito com comida, chame o grupo de "dragas" ou "esfomeados".
+      - Se a conta deu baixa, zoa que o grupo é "mão de vaca".
+      - O objetivo é fazer o grupo rir ao ler o resumo. Seja criativo!
 
       Dados:
       ${dataSummary}

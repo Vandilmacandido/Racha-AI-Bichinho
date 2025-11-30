@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Plus, Users, Home, Receipt, DollarSign, BrainCircuit, 
-  Trash2, ChevronRight, UserPlus, FileText, Check, Percent
+  Trash2, ChevronRight, UserPlus, FileText, Check, Percent, Sparkles
 } from 'lucide-react';
 import { Participant, ExpenseItem, AIReceiptResponse } from './types';
 import AIReceiptParser from './components/AIReceiptParser';
@@ -494,12 +494,9 @@ function App() {
       
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="bg-emerald-600 text-white p-1.5 rounded-lg">
-                <DollarSign className="w-5 h-5" />
-            </div>
-            <span className="font-bold text-lg tracking-tight">Racha AI <span className="text-emerald-600">Bichinho</span></span>
+        <div className="max-w-md mx-auto px-4 py-3 flex justify-center items-center">
+          <div className="flex items-center gap-3">
+            <span className="font-bold text-lg tracking-tight text-gray-800">Racha AI <span className="text-emerald-600">Bichinho</span></span>
           </div>
         </div>
       </header>
@@ -554,14 +551,6 @@ function App() {
       <div className="h-safe-bottom" />
     </div>
   );
-}
-
-function Sparkles({ className }: { className?: string }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z" />
-        </svg>
-    )
 }
 
 export default App;
